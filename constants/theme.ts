@@ -33,7 +33,7 @@ export const Colors = {
     cardMuted: '#111827',
     tint: tintDark,
     icon: '#9CA3AF',
-    tabBar: '#020617',
+    tabBar: '#050816',
     tabIconDefault: '#6B7280',
     tabIconSelected: tintDark,
     searchBackground: '#111827',

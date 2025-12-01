@@ -29,15 +29,15 @@ const themeColors = Colors[colorScheme ?? 'light'];
         <Text
           style={{
     marginLeft: 16,
-    marginTop: 8,
-    fontSize: 22,
+    marginTop: 12,
+    fontSize: 24,
     fontWeight: '700',
     textAlign:'center'
       }}>
           News & Weather 
         </Text>
         <Text style={{ marginLeft: 16, marginBottom: 4,color:themeColors.subtext,fontSize:14,fontWeight:'bold',paddingTop:20 }}>
-          Current Region: {displayCity},{regionCode}
+          Current Region: {displayCity}, {regionCode}
         </Text>
 
         <WeatherCard

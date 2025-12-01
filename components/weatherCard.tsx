@@ -42,16 +42,29 @@ const WeatherCard: React.FC<Props> = ({ weather, loading }) => {
   const iconUrl = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
 
   return (
-    <Card style={{ margin: 16 }}>
-      <Card.Content style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <Card style={{ 
+      marginHorizontal: 16 ,
+      marginVertical:16,
+      borderRadius:24,
+      backgroundColor:themeColors.tint,
+      elevation:4
+      }}>
+      <Card.Content style={{ flexDirection: 'row', alignItems: 'center',paddingVertical:16 }}>
         <Image
           source={{ uri: iconUrl }}
-          style={{ width: 60, height: 60, marginRight: 12, borderRadius: 30 }}
+          style={{ width: 72, height: 72, marginRight: 16, borderRadius: 30 }}
         />
-        <View>
-          <Text variant="titleMedium">{weather.city}</Text>
-          <Text variant="headlineMedium">{Math.round(weather.temp)}°C</Text>
-          <Text>{weather.description}</Text>
+        <View style={{flex:1}}>
+          <Text variant="titleMedium"
+          style={{color:"white",opacity:0.9}}
+          >
+            {weather.city}</Text>
+          <Text variant="headlineMedium"
+          style={{color:"white",fontWeight:'700'}}
+          >
+            {Math.round(weather.temp)}°C
+          </Text>
+          <Text style={{color:'white',textTransform:'capitalize'}}>{weather.description}</Text>
         </View>
       </Card.Content>
     </Card>

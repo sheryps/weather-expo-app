@@ -24,10 +24,20 @@ const themeColors = Colors[colorScheme ?? 'light'];
 
   const regionCode = (location.countryCode || 'in').toUpperCase();
   return (
-    <SafeAreaView style={{ flex: 1,backgroundColor:themeColors.background }}>
-      <View style={{ paddingTop: 8, flex: 1 }}>
-        <Text style={{ marginLeft: 16, marginBottom: 4,color:themeColors.subtext,fontSize:14 }}>
-          Region: {displayCity} {regionCode}
+    <SafeAreaView style={{ flex: 1,backgroundColor:themeColors.background,marginTop:40 }}>
+      <View style={{ paddingTop: 5, flex: 1 }}>
+        <Text
+          style={{
+    marginLeft: 16,
+    marginTop: 8,
+    fontSize: 22,
+    fontWeight: '700',
+    textAlign:'center'
+      }}>
+          News & Weather 
+        </Text>
+        <Text style={{ marginLeft: 16, marginBottom: 4,color:themeColors.subtext,fontSize:14,fontWeight:'bold',paddingTop:20 }}>
+          Current Region: {displayCity},{regionCode}
         </Text>
 
         <WeatherCard

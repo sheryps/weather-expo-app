@@ -1,14 +1,18 @@
 // components/NewsItem.tsx
+import { Colors } from '@/constants/theme';
 import React from 'react';
 import { Image, Linking, TouchableOpacity, View } from 'react-native';
 import { Card, Text } from 'react-native-paper';
+import { useColorScheme } from '../hooks/use-color-scheme';
 import { Article } from '../hooks/useNews';
-
 type Props = {
   article: Article;
 };
 
 const NewsItem: React.FC<Props> = ({ article }) => {
+  const colorScheme = useColorScheme();
+  const themeColors = Colors[colorScheme ?? 'light'];
+
   const handlePress = () => {
     if (article.url) {
       Linking.openURL(article.url);
@@ -17,7 +21,12 @@ const NewsItem: React.FC<Props> = ({ article }) => {
 
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Card style={{ marginHorizontal: 16, marginVertical: 6 }}>
+      <Card style={{ marginHorizontal: 16, marginVertical: 6,
+          borderRadius: 18,
+          backgroundColor: themeColors.card,
+          elevation: 2,
+
+      }}>
         <Card.Content style={{ flexDirection: 'row' }}>
           {article.image ? (
             <Image
@@ -26,13 +35,18 @@ const NewsItem: React.FC<Props> = ({ article }) => {
             />
           ) : null}
           <View style={{ flex: 1 }}>
-            <Text variant="titleSmall" numberOfLines={2}>
+            <Text variant="titleSmall" numberOfLines={2}
+            style={{ color: themeColors.text }}
+            >
               {article.title}
             </Text>
-            <Text numberOfLines={3} style={{ marginTop: 4 }}>
+            <Text numberOfLines={3} style={{ marginTop: 4,
+              fontSize: 13,
+              color: themeColors.subtext,
+            }}>
               {article.description}
             </Text>
-            <Text style={{ marginTop: 4, fontSize: 12, opacity: 0.7 }}>
+            <Text style={{ marginTop: 4, fontSize: 12, opacity: 0.7,color:themeColors.accent }}>
               {article.sourceName}
             </Text>
           </View>

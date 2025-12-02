@@ -18,7 +18,7 @@ const NewsList: React.FC<Props> = ({ articles, loading }) => {
   if (!loading && articles.length === 0) {
     return (
       <Text style={{ marginTop: 16, textAlign: 'center' }}>
-        No articles found.Try a different keyword
+        No articles found. Try a different keyword
       </Text>
     );
   }
